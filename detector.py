@@ -112,7 +112,7 @@ class Detector(object):
         self.model.load_state_dict(torch.load(PATH))
         self.model.eval()
 
-    def forward(self, img):   
+    def forward(self, frame):   
         # grayscale image for face detection
         # frame = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
@@ -251,22 +251,22 @@ class Detector(object):
 
         return bbox_interested, class_name_interested
 
-cap = cv2.VideoCapture(0)
-detector = Detector()
-while cap.isOpened():
-    ret, frame = cap.read()
-    if not ret:
-        break
+# cap = cv2.VideoCapture(0)
+# detector = Detector()
+# while cap.isOpened():
+#     ret, frame = cap.read()
+#     if not ret:
+#         break
 
-    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    bbox, bbox_label = detector.forward(frame)
+#     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+#     bbox, bbox_label = detector.forward(frame)
 
-    cv2.rectangle(frame, (int(bbox[0]), int(bbox[1])), (int(bbox[2]), int(bbox[3])), (255,255,255), 2)
-    result = np.asarray(frame)
-    result = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
-    cv2.imshow("tracking", result)
-    if cv2.waitKey(10) & 0xFF == ord('q'): break
+#     cv2.rectangle(frame, (int(bbox[0]), int(bbox[1])), (int(bbox[2]), int(bbox[3])), (255,255,255), 2)
+#     result = np.asarray(frame)
+#     result = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+#     cv2.imshow("tracking", result)
+#     if cv2.waitKey(10) & 0xFF == ord('q'): break
         
-cap.release()
-cv2.destroyAllWindows()
+# cap.release()
+# cv2.destroyAllWindows()
 
