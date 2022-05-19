@@ -1,3 +1,0 @@
-[submodule "yolov5-deepsort"]
-	path = yolov5-deepsort
-	url = https://github.com/theAIGuysCode/yolov4-deepsort
