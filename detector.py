@@ -270,3 +270,9 @@ class Detector(object):
 # cap.release()
 # cv2.destroyAllWindows()
 
+detector = Detector()
+frame = cv2.imread("../0001.jpg")
+frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+bbox, bbox_label = detector.forward(frame)
+print(bbox)
+
