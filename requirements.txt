@@ -1,8 +1,11 @@
+tensorflow==2.7.0
+torch>=1.11.0
 mediapipe
 pandas
 requests
 pyyaml
 tqdm
 seaborn
-tensorflow
-pytorch
+Pillow
+matplotlib
+os
