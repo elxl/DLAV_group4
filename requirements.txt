@@ -9,3 +9,5 @@ seaborn
 Pillow
 matplotlib
 os
+ipython
+easydict
