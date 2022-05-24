@@ -204,7 +204,7 @@ class Detector(object):
           classes = np.array([])
 
         # format bounding boxes from normalized ymin, xmin, ymax, xmax ---> xmin, ymin, width, height
-        original_h, original_w, _ = frame.size[1], frame.size[0]
+        original_h, original_w = frame.size[1], frame.size[0]
         bboxes = utils.format_boxes(bboxes, original_h, original_w)
 
         # store all predictions in one parameter for simplicity when calling functions
