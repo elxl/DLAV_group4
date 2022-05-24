@@ -233,7 +233,7 @@ class Detector(object):
         self.tracker.predict()
         self.tracker.update(detections)
 
-        bbox_interested = [0,0,0,0]
+        bbox_interested = [0,0]
         class_name_interested = None
         # update tracks
         for track in self.tracker.tracks:
@@ -246,9 +246,11 @@ class Detector(object):
               self.IDofInterest = track.track_id
 
             if track.track_id == self.IDofInterest :
-                bbox_interested = bbox
-                class_name_interested = class_name
-
+                bbox_interested[0] = (bbox[0] + bbox[2])/2
+                bbox_interested[1] = (bbox[1] + bbox[3])/2
+                class_name_interested = [1.0]
+        if bbox_interested[0] == 0 and bbox_interested[1] == 0:
+          return [80,60], [1.0]
         return bbox_interested, class_name_interested
 
 # cap = cv2.VideoCapture(0)
