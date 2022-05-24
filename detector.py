@@ -116,10 +116,10 @@ class Detector(object):
         # grayscale image for face detection
         # frame = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-        frame_size = frame.shape[:2]
-
+        frame_size = frame.size[:2]
+        
         # create transparent overlay for bounding box
-        bbox_array = np.zeros([frame_size[0],frame_size[1],4], dtype=np.uint8) 
+        bbox_array = np.zeros([frame_size[1],frame_size[0],4], dtype=np.uint8) 
         
 
         # Detection
@@ -166,10 +166,10 @@ class Detector(object):
                 bboxes = np.zeros((1,4))
                 scores = np.zeros(1)
                 classes = np.zeros(1)
-                bboxes[0,0] = int(detectPersonOfInterest['ymin'])/frame_size[0]
-                bboxes[0,1] = int(detectPersonOfInterest['xmin'])/frame_size[1]
-                bboxes[0,2] = int(detectPersonOfInterest['ymax'])/frame_size[0]
-                bboxes[0,3] = int(detectPersonOfInterest['xmax'])/frame_size[1]
+                bboxes[0,0] = int(detectPersonOfInterest['ymin'])/frame_size[1]
+                bboxes[0,1] = int(detectPersonOfInterest['xmin'])/frame_size[0]
+                bboxes[0,2] = int(detectPersonOfInterest['ymax'])/frame_size[1]
+                bboxes[0,3] = int(detectPersonOfInterest['xmax'])/frame_size[0]
                 scores[0] = np.array(float(detectPerson.iloc[0]['confidence']))
                 classes[0] = np.array(0) # class person
                 self.count += 1 
@@ -189,10 +189,10 @@ class Detector(object):
           for i in range(num_objects):
             #print('numobjects', num_objects)
             #print('i',i)
-            bboxes[i,0] = int(detectPerson.iloc[i]['ymin'])/frame_size[0]
-            bboxes[i,1] = int(detectPerson.iloc[i]['xmin'])/frame_size[1]
-            bboxes[i,2] = int(detectPerson.iloc[i]['ymax'])/frame_size[0]
-            bboxes[i,3] = int(detectPerson.iloc[i]['xmax'])/frame_size[1]
+            bboxes[i,0] = int(detectPerson.iloc[i]['ymin'])/frame_size[1]
+            bboxes[i,1] = int(detectPerson.iloc[i]['xmin'])/frame_size[0]
+            bboxes[i,2] = int(detectPerson.iloc[i]['ymax'])/frame_size[1]
+            bboxes[i,3] = int(detectPerson.iloc[i]['xmax'])/frame_size[0]
             scores[i] = np.array(float(detectPerson.iloc[i]['confidence']))
             classes[i] = np.array(0) # class person
 
@@ -246,8 +246,8 @@ class Detector(object):
               self.IDofInterest = track.track_id
 
             if track.track_id == self.IDofInterest :
-                bbox_interested[0] = (bbox[0] + bbox[2])/2
-                bbox_interested[1] = (bbox[1] + bbox[3])/2
+                bbox_interested[0] = int(frame_size[0]*(bbox[1] + bbox[3])/2)
+                bbox_interested[1] = int(frame_size[1]*(bbox[0] + bbox[2])/2)
                 class_name_interested = [1.0]
         if bbox_interested[0] == 0 and bbox_interested[1] == 0:
           return [80,60], [1.0]
