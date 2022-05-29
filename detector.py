@@ -120,6 +120,7 @@ class Detector(object):
         
         # create transparent overlay for bounding box
         bbox_array = np.zeros([frame_size[1],frame_size[0],4], dtype=np.uint8) 
+        frame = np.array(frame)
         
 
         # Detection
@@ -134,8 +135,10 @@ class Detector(object):
         detectPersonOfInterest = pd.Series(dtype='float64')
         
         if self.initialisation :
+          print("initialisation")
+          print(len(detectPerson))
           
-          for i in detectPerson.index:
+          for i in range(detectPerson.shape[0]):
             cur_person = detectPerson.iloc[i,:]
             xmin = int(cur_person['xmin'])
             xmax = int(cur_person['xmax'])
@@ -204,7 +207,7 @@ class Detector(object):
           classes = np.array([])
 
         # format bounding boxes from normalized ymin, xmin, ymax, xmax ---> xmin, ymin, width, height
-        original_h, original_w = frame.size[1], frame.size[0]
+        original_h, original_w = frame.shape[0], frame.shape[1]
         bboxes = utils.format_boxes(bboxes, original_h, original_w)
 
         # store all predictions in one parameter for simplicity when calling functions
@@ -246,8 +249,8 @@ class Detector(object):
               self.IDofInterest = track.track_id
 
             if track.track_id == self.IDofInterest :
-                bbox_interested[0] = int(frame_size[0]*(bbox[1] + bbox[3])/2)
-                bbox_interested[1] = int(frame_size[1]*(bbox[0] + bbox[2])/2)
+                bbox_interested[1] = (bbox[1] + bbox[3])/2
+                bbox_interested[0] = (bbox[0] + bbox[2])/2
                 class_name_interested = [1.0]
         if bbox_interested[0] == 0 and bbox_interested[1] == 0:
           return [80,60], [1.0]
