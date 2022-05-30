@@ -99,6 +99,8 @@ class Detector(object):
         self.initialisation = True
         self.count = 0
         self.IDofInterest = -1
+        self.empty_detectoin = 0
+        self.tracking_interested = False
 
         self.model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
         self.model.confidence = 0.4
@@ -249,11 +251,24 @@ class Detector(object):
               self.IDofInterest = track.track_id
 
             if track.track_id == self.IDofInterest :
-                bbox_interested[1] = (bbox[1] + bbox[3])/2
-                bbox_interested[0] = (bbox[0] + bbox[2])/2
-                class_name_interested = [1.0]
+              self.tracking_interested = True
+              self.empty_detectoin = 0
+              bbox_interested[1] = (bbox[1] + bbox[3])/2
+              bbox_interested[0] = (bbox[0] + bbox[2])/2
+              class_name_interested = [1.0]
+        
+        if not initialisation and not tracking_interested:
+          self.empty_detectoin += 1
+        
+        if empty_detectoin > 100:
+          self.initialisation = True
+          self.IDofInterest = -1
+          self.empty_detectoin = 0
+          self.count = 0
+
         if bbox_interested[0] == 0 and bbox_interested[1] == 0:
           return [80,60], [1.0]
+        
         return bbox_interested, class_name_interested
 
 # cap = cv2.VideoCapture(0)
