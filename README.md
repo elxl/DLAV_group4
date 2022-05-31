@@ -27,8 +27,11 @@ DLAV_group4
 
 ### Our model 
 `detector_tracking.ipynb`: Our tracker implemented in `.ipynb` file. 
+
 `client.py`: This file communicates between `detector.py` and the V100's server.
-`detector.py`: Our tracker implemented in this file to be compatible with `client.py`
+
+`detector.py`: Our tracker implemented in this file to be compatible with `client.py`.
+
 `main.py`: `detect_tracking.ipynb` into a `.py` file.
 
 ## Requirements
