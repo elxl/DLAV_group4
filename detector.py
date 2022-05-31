@@ -138,7 +138,7 @@ class Detector(object):
         
         if self.initialisation :
           print("initialisation")
-          print(len(detectPerson))
+          #print(len(detectPerson))
           
           for i in range(detectPerson.shape[0]):
             cur_person = detectPerson.iloc[i,:]
@@ -164,7 +164,8 @@ class Detector(object):
 
     
 
-              if (left_wrist.y < left_shoulder.y) and (right_wrist.y < right_shoulder.y):
+              #if (left_wrist.y < left_shoulder.y) and (right_wrist.y < right_shoulder.y):
+              if (left_wrist.y > left_shoulder.y) and (right_wrist.y < right_shoulder.y) and (left_wrist.x < left_shoulder.x) and (left_wrist.x > right_shoulder.x) and (right_wrist.x < left_shoulder.x) and (right_wrist.x > right_shoulder.x) :
 
                 detectPersonOfInterest = detectPerson.iloc[i,:]          
                 num_objects=1
@@ -179,6 +180,7 @@ class Detector(object):
                 classes[0] = np.array(0) # class person
                 self.count += 1 
                 if self.count > 10: 
+                  print("***************initialisation finish******************")
                   self.initialisation = False
                 break                     
 
@@ -237,6 +239,7 @@ class Detector(object):
         # Call the tracker
         self.tracker.predict()
         self.tracker.update(detections)
+        self.tracking_interested = False
 
         bbox_interested = [0,0]
         class_name_interested = None
@@ -257,17 +260,18 @@ class Detector(object):
               bbox_interested[0] = (bbox[0] + bbox[2])/2
               class_name_interested = [1.0]
         
-        if not initialisation and not tracking_interested:
+        if not self.initialisation and not self.tracking_interested:
           self.empty_detectoin += 1
         
-        if empty_detectoin > 100:
+        if self.empty_detectoin > 20:
+          print("--------------redo initializatoin---------------")
           self.initialisation = True
           self.IDofInterest = -1
           self.empty_detectoin = 0
           self.count = 0
 
         if bbox_interested[0] == 0 and bbox_interested[1] == 0:
-          return [80,60], [1.0]
+          return [80,60], [0.0]
         
         return bbox_interested, class_name_interested
 
