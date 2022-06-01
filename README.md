@@ -23,7 +23,7 @@ DLAV_group4
     
 ```
 ### YOLOv5 + deepsort files
-`yolov5-deepsort`: This folder contains all the code for YOLOv4 for detection (since DeepSORT runs detection at every frame) and DeepSORT for tracking, cloned from [theAIGuysCode](https://github.com/theAIGuysCode/yolov4-deepsort). 
+`yolov5-deepsort`: This folder contains all the code for YOLOv5 for detection (since DeepSORT runs detection at every frame) and DeepSORT for tracking, cloned from [theAIGuysCode](https://github.com/theAIGuysCode/yolov4-deepsort). We are including the YOLOv5 weights (`yolov5s.pt`) in the folder.
 
 ### Our model 
 `detector_tracking.ipynb`: Our tracker implemented in `.ipynb` file. 
@@ -61,9 +61,9 @@ Run:
 `python client.py --ip-address <Loomo IP address>`
 
 ### Initialise the tracker
-Stand in front of the camera, do the following pose. Please hold the pose for 10 seconds.
+Stand in front of the camera, do the following pose. Please hold the pose until initialisation is complete.
 
-TODO: Insert a photo of the initalisation gesture
+![Initialisation pose](initialisation_pose.jpg)
 
 
 ### References
