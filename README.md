@@ -1,5 +1,5 @@
 # CS-459 EPFL Deep learning for autonomous vehicles: Final Project 
-Group 4: Nada Guerraoui, Thomas Peeters, Xinling Li, Kuan Lon Vu
+Group 4: Xinling Li, Nada Guerraoui, Thomas Peeters, Kuan Lon Vu
 
 This is the repository for the final project of CS-459. The goal of this project is to train a detector and tracker which will be exported to run on a Loomo robot at the EPFL Tandem Race 2022. For the model, we decided to use YOLOv5 deepsort as our selected model for the race.
 
@@ -30,7 +30,7 @@ DLAV_group4
 ### Milestone 1: detection
 
 ### Milestone 2: tracking
-`detector_tracking.ipynb`: Yolov5  
+`Milestone2.ipynb`: Our YOLOv5 deepsort tracker which needs to run on Google Colab.
 
 ### Milestone 3: Tandom Race
 
@@ -45,9 +45,12 @@ DLAV_group4
 *Note: Please connect to the EPFL network before proceeding*
 
 ### Milestones 1 and 2
-Click on the provided Google Colab links for respective milestons and run all cells. Please ensure that the machine running the code is connect to the webcam.
+To run the code for milestones 1 and 2, it is required to set it up on Google Colab as the code involves using the JS code scippets to access the webcam. Please upload the files to Google Colab (or to Google Drive and then mount the Drive to Google Colab). A full tutorial to set up Google Colab is beyond the scope of this documentation.
+
+Please ensure that the machine running the code is connect to the webcam.
 
 ### Milestone 3
+Milestone 3 builds on the code in Milestone 2, but for the detection, we have opted to use pose detection using Mediapipe.
 
 #### Requirements
 To install the required packages, run:
@@ -80,3 +83,4 @@ Stand in front of the camera, do the following pose. Please hold the pose until 
 
 ## References
 - theAIGuysCode (2022). yolov4-deepsort. https://github.com/theAIGuysCode/yolov4-deepsort
+- Camillo Lugaresi et al. “MediaPipe: A Framework for Building Perception Pipelines”. In: arXiv e-prints, arXiv:1906.08172 (June 2019), arXiv:1906.08172. arXiv: [1906.08172](https://arxiv.org/abs/1906.08172) [cs.DC].
