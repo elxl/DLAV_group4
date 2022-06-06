@@ -7,14 +7,14 @@ This is the repository for the final project of CS-459. The goal of this project
 This repository contains:
 ```
 DLAV_group4
-│   client.py
 │   requirements.txt
 │   initialisation_pose.jpg
-|   best_mask_28_04.pt
-|   best_27_04.pt
 │   Milestone1.ipynb
-|   Milestone2.ipynb
+│   Milestone2.ipynb
 │   README.md
+│   best_27_04_final.pt
+│   best_mask_28_04.pt
+│   client.py
 │   detector.py
 │
 └───yolov5-deepsort
@@ -27,11 +27,11 @@ DLAV_group4
 
 ### Milestone 1: detection
 
-`Milestone1.ipynb`: Our YOLOv5 detection (detect Nada face and mask) to run on Google Colab.
+`Milestone1.ipynb`: Our YOLOv5 detection (detect Nada's face, and mask) to run on Google Colab.
 
-`best_mask_28_04.pt` : The trained weights for mask detection
+`best_mask_28_04.pt` : The trained weights for mask detection, to be uploaded to Google Colab.
 
-`best_27_04.pt` : The trained weights for Nada face detection
+`best_27_04.pt` : The trained weights for Nada's face detection, to be uploaded to Google Colab.
 
 ### Milestone 2: tracking
 `Milestone2.ipynb`: Our YOLOv5 deepsort tracker which needs to run on Google Colab.
@@ -47,7 +47,9 @@ DLAV_group4
 *Note: Please connect to the EPFL network before proceeding*
 
 ### Milestones 1 and 2
-To run the code for milestones 1 and 2, it is required to set it up on Google Colab as the code involves using the JS code scippets to access the webcam. Please upload the files to Google Colab (or to Google Drive and then mount the Drive to Google Colab). A full tutorial to set up Google Colab is beyond the scope of this documentation.
+To run the code for milestones 1 and 2, it is required to set it up on Google Colab as the code involves using the JS code scippets to access the webcam. Please upload the files to Google Colab (or to Google Drive and then mount the Drive to Google Colab). A full tutorial to set up Google Colab is beyond the scope of this documentation. 
+
+*Note: Please remember to upload the trained weights to the same directory on Google Colab.*
 
 Please ensure that the machine running the code is connect to the webcam.
 
