@@ -95,8 +95,10 @@ while True:
         bbox, bbox_label = detector.forward(pil_image)
 
         if bbox_label:
-            print("BBOX: {}".format(bbox))
-            print("BBOX_label: {}".format(bbox_label))
+            # print("BBOX: {}".format(bbox))
+            # print("BBOX_label: {}".format(bbox_label))
+            if bbox_label[0] < 0.5:
+                print("no detection")
         else:
             print("False")
 
