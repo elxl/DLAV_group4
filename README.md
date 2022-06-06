@@ -7,25 +7,20 @@ This is the repository for the final project of CS-459. The goal of this project
 This repository contains:
 ```
 DLAV_group4
-│   0001.jpg
-│   README.md
 │   client.py
-│   detect_tracking.ipynb
-│   detector.py
-│   main.py
 │   requirements.txt
-│   run_client.sh
-│   saved_model.pth
-│   setup.py
-│   test.py
+│   initialisation_pose.jpg
+│   Milestone2.ipynb
+│   README.md
+│   detector.py
 │
-└───yolov5-deepsort 
+└───yolov5-deepsort
     
 ```
 ### YOLOv5 + deepsort files
 *These files are used in milestones 2 and 3.*
 
-`yolov5-deepsort`: This folder contains all the code for YOLOv5 for detection (since DeepSORT runs detection at every frame) and DeepSORT for tracking, cloned from [theAIGuysCode](https://github.com/theAIGuysCode/yolov4-deepsort). We are including the YOLOv5 weights (`yolov5s.pt`) in the folder.
+`yolov5-deepsort`: This folder contains all the code for YOLOv5 for detection (since DeepSORT runs detection at every frame) and DeepSORT for tracking, cloned from [theAIGuysCode](https://github.com/theAIGuysCode/yolov4-deepsort). We have added the YOLOv5 weights (`yolov5s.pt`) in the folder.
 
 ### Milestone 1: detection
 
@@ -37,8 +32,6 @@ DLAV_group4
 `client.py`: This file communicates between `detector.py` and the V100's server.
 
 `detector.py`: Our tracker implemented in this file to be compatible with `client.py`.
-
-`main.py`: `detect_tracking.ipynb` into a `.py` file.
 
 
 ## Instructions to run the code
