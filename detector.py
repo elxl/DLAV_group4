@@ -252,37 +252,31 @@ class Detector(object):
         
         return bbox_interested, class_name_interested
 
-# Test the detector on our webcam 
-detector = Detector()
-from PIL import Image
-cap = cv2.VideoCapture(0)
-# Check if the webcam is opened correctly
-if not cap.isOpened():
-    raise IOError("Cannot open webcam")
 
-while True:
-    #get the frame
-    ret, frame = cap.read()
-    frame = np.array(frame)
-    frame = cv2.resize(frame,(int(160),int(120)), interpolation=cv2.INTER_AREA)
-
-    # run detector
-    pred_box,label = detector.forward(frame)
-    
-    # show results 
-    cv2.rectangle(frame, (int(pred_box[0]-5), int(pred_box[1]-5)), (int(pred_box[0]+5), int(pred_box[1]+5)), [250,0,0], 2)
-    cv2.imshow('Input', frame)
-    c = cv2.waitKey(1)
-    if c == 27:
-       break
-
-cap.release()
-cv2.destroyAllWindows()
-"""
 if __name__ == "__main__":
+  # Test the detector on our webcam 
   detector = Detector()
-  frame = cv2.imread("../0001.jpg")
-  frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-  bbox, bbox_label = detector.forward(frame)
-  print(bbox)
-"""
+  from PIL import Image
+  cap = cv2.VideoCapture(0)
+  # Check if the webcam is opened correctly
+  if not cap.isOpened():
+      raise IOError("Cannot open webcam")
+
+  while True:
+      #get the frame
+      ret, frame = cap.read()
+      frame = np.array(frame)
+      frame = cv2.resize(frame,(int(160),int(120)), interpolation=cv2.INTER_AREA)
+
+      # run detector
+      pred_box,label = detector.forward(frame)
+      
+      # show results 
+      cv2.rectangle(frame, (int(pred_box[0]-5), int(pred_box[1]-5)), (int(pred_box[0]+5), int(pred_box[1]+5)), [250,0,0], 2)
+      cv2.imshow('Input', frame)
+      c = cv2.waitKey(1)
+      if c == 27:
+        break
+
+  cap.release()
+  cv2.destroyAllWindows()
