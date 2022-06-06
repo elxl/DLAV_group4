@@ -16,10 +16,14 @@ DLAV_group4
 │   best_mask_28_04.pt
 │   client.py
 │   detector.py
+│   report.pdf
 │
 └───yolov5-deepsort
     
 ```
+### Report
+`report.pdf`: This PDF documents the discussion on methodology used in the milestones, and the challenges we overcame.
+
 ### YOLOv5 + deepsort files
 *These files are used in milestones 2 and 3.*
 
