@@ -24,8 +24,11 @@ DLAV_group4
 
 ### Milestone 1: detection
 
-`Milestone2.ipynb`: Our YOLOv5 deepsort tracker which needs to run on Google Colab.
-`best_mask_weight` : The trained weights for mask detection
+`Milestone1.ipynb`: Our YOLOv5 detection (detect Nada face and mask) to run on Google Colab.
+
+`best_mask_28_04` : The trained weights for mask detection
+
+`best_27_04` : The trained weights for Nada face detection
 
 ### Milestone 2: tracking
 `Milestone2.ipynb`: Our YOLOv5 deepsort tracker which needs to run on Google Colab.
