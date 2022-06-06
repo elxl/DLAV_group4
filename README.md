@@ -78,7 +78,7 @@ Run:
 `python client.py --ip-address <Loomo IP address>`
 
 ### Initialise the tracker
-Stand in front of the camera, do the following pose. Please hold the pose until initialisation is complete.
+Stand in front of the camera, do the following pose. Please hold the pose until initialisation is complete. Then start walking and the robot will follow you. If the robot stop following you redo the pose until it detects you again. 
 
 ![Initialisation pose](initialisation_pose.jpg)
 
