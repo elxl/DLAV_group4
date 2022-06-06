@@ -10,7 +10,10 @@ DLAV_group4
 │   client.py
 │   requirements.txt
 │   initialisation_pose.jpg
-│   Milestone2.ipynb
+|   best_mask_28_04.pt
+|   best_27_04.pt
+│   Milestone1.ipynb
+|   Milestone2.ipynb
 │   README.md
 │   detector.py
 │
@@ -26,14 +29,14 @@ DLAV_group4
 
 `Milestone1.ipynb`: Our YOLOv5 detection (detect Nada face and mask) to run on Google Colab.
 
-`best_mask_28_04` : The trained weights for mask detection
+`best_mask_28_04.pt` : The trained weights for mask detection
 
-`best_27_04` : The trained weights for Nada face detection
+`best_27_04.pt` : The trained weights for Nada face detection
 
 ### Milestone 2: tracking
 `Milestone2.ipynb`: Our YOLOv5 deepsort tracker which needs to run on Google Colab.
 
-### Milestone 3: Tandom Race
+### Milestone 3: Tandem Race
 
 `client.py`: This file communicates between `detector.py` and the V100's server.
 
