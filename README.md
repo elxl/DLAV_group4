@@ -17,17 +17,15 @@ DLAV_group4
 │   client.py
 │   detector.py
 │   report.pdf
-│
-└───yolov5-deepsort
+|   yolov5s.pt
     
 ```
 ### Report
 `report.pdf`: This PDF documents the discussion on methodology used in the milestones, and the challenges we overcame.
 
 ### YOLOv5 + deepsort files
-*These files are used in milestones 2 and 3.*
 
-`yolov5-deepsort`: This folder contains all the code for YOLOv5 for detection (since DeepSORT runs detection at every frame) and DeepSORT for tracking, cloned from [theAIGuysCode](https://github.com/theAIGuysCode/yolov4-deepsort). We have added the YOLOv5 weights (`yolov5s.pt`) in the folder.
+To run client.py on server, cloned deepsort repository from [theAIGuysCode](https://github.com/theAIGuysCode/yolov4-deepsort), rename it to yolo5-deepsort and add the YOLOv5 weights (`yolov5s.pt`) into the folder.
 
 ### Milestone 1: detection
 
